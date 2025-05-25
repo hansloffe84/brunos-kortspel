@@ -9,137 +9,19 @@ import { Coins, Heart, Sword, Star, Trophy, ShoppingCart, Users, Zap } from "luc
 
 // Korttyper och data
 const CARD_TYPES = [
-  {
-    id: 1,
-    name: "Flamewyrm",
-    hp: 120,
-    atk: 35,
-    rarity: "common",
-    cost: 50,
-    image: "/images/flamewyrm.png",
-    attacks: [{ name: "Flame Burst", damage: 35, description: "En kraftfull eldattack" }],
-  },
-  {
-    id: 2,
-    name: "Aquadragon",
-    hp: 110,
-    atk: 30,
-    rarity: "common",
-    cost: 45,
-    image: "/images/aquadragon.png",
-    attacks: [{ name: "Water Pulse", damage: 30, description: "En våg av vatten träffar fienden" }],
-  },
-  {
-    id: 3,
-    name: "Thunderbeast",
-    hp: 100,
-    atk: 40,
-    rarity: "common",
-    cost: 55,
-    image: "/images/thunderbeast.png",
-    attacks: [{ name: "Thunder Strike", damage: 40, description: "Blixten slår ner med kraft" }],
-  },
-  {
-    id: 4,
-    name: "Earthguard",
-    hp: 140,
-    atk: 25,
-    rarity: "common",
-    cost: 60,
-    image: "/images/earthguard.png",
-    attacks: [{ name: "Stone Slam", damage: 25, description: "Krossar fienden med sten" }],
-  },
-  {
-    id: 5,
-    name: "Windspirit",
-    hp: 90,
-    atk: 45,
-    rarity: "uncommon",
-    cost: 80,
-    emoji: "💨",
-    attacks: [
-      { name: "Wind Slash", damage: 35, description: "Skärande vindblad" },
-      { name: "Tornado", damage: 55, description: "En kraftfull virvelstorm" },
-    ],
-  },
-  {
-    id: 6,
-    name: "Icephoenix",
-    hp: 130,
-    atk: 38,
-    rarity: "uncommon",
-    cost: 85,
-    emoji: "❄️",
-    attacks: [
-      { name: "Ice Beam", damage: 30, description: "En stråle av is" },
-      { name: "Blizzard", damage: 50, description: "En isande snöstorm" },
-    ],
-  },
-  {
-    id: 7,
-    name: "Shadowlord",
-    hp: 150,
-    atk: 42,
-    rarity: "rare",
-    cost: 120,
-    emoji: "🌙",
-    attacks: [
-      { name: "Shadow Strike", damage: 35, description: "Anfall från skuggorna" },
-      { name: "Dark Pulse", damage: 50, description: "Mörk energi exploderar" },
-      { name: "Nightmare", damage: 65, description: "En mardrömsattack" },
-    ],
-  },
-  {
-    id: 8,
-    name: "Lightbringer",
-    hp: 160,
-    atk: 40,
-    rarity: "rare",
-    cost: 130,
-    emoji: "☀️",
-    attacks: [
-      { name: "Light Ray", damage: 35, description: "En stråle av rent ljus" },
-      { name: "Solar Flare", damage: 50, description: "Solens kraft exploderar" },
-      { name: "Divine Light", damage: 70, description: "Gudomligt ljus renar allt" },
-    ],
-  },
-  {
-    id: 9,
-    name: "Voidmaster",
-    hp: 180,
-    atk: 50,
-    rarity: "legendary",
-    cost: 200,
-    emoji: "🌌",
-    attacks: [
-      { name: "Void Slash", damage: 40, description: "Klyver verkligheten" },
-      { name: "Black Hole", damage: 60, description: "Suger in allt ljus" },
-      { name: "Reality Tear", damage: 80, description: "River sönder själva rymden" },
-    ],
-  },
-  {
-    id: 10,
-    name: "Cosmicdragon",
-    hp: 200,
-    atk: 55,
-    rarity: "legendary",
-    cost: 250,
-    emoji: "✨",
-    attacks: [
-      { name: "Cosmic Breath", damage: 45, description: "Andas stjärnstoft" },
-      { name: "Galaxy Storm", damage: 65, description: "En storm av galaxer" },
-      { name: "Big Bang", damage: 90, description: "Skapar ett nytt universum" },
-    ],
-  },
+  { id: 1, name: "Flamewyrm", hp: 120, atk: 35, rarity: "common", cost: 50, image: "/images/flamewyrm.png" },
+  { id: 2, name: "Aquadragon", hp: 110, atk: 30, rarity: "common", cost: 45, image: "/images/aquadragon.png" },
+  { id: 3, name: "Thunderbeast", hp: 100, atk: 40, rarity: "common", cost: 55, image: "/images/thunderbeast.png" },
+  { id: 4, name: "Earthguard", hp: 140, atk: 25, rarity: "common", cost: 60, image: "/images/earthguard.png" },
+  { id: 5, name: "Windspirit", hp: 90, atk: 45, rarity: "uncommon", cost: 80, emoji: "💨" },
+  { id: 6, name: "Icephoenix", hp: 130, atk: 38, rarity: "uncommon", cost: 85, emoji: "❄️" },
+  { id: 7, name: "Shadowlord", hp: 150, atk: 42, rarity: "rare", cost: 120, emoji: "🌙" },
+  { id: 8, name: "Lightbringer", hp: 160, atk: 40, rarity: "rare", cost: 130, emoji: "☀️" },
+  { id: 9, name: "Voidmaster", hp: 180, atk: 50, rarity: "legendary", cost: 200, emoji: "🌌" },
+  { id: 10, name: "Cosmicdragon", hp: 200, atk: 55, rarity: "legendary", cost: 250, emoji: "✨" },
 ]
 
 const STARTER_CARDS = [1, 2, 3] // Flamewyrm, Aquadragon, Thunderbeast
-
-type Attack = {
-  name: string
-  damage: number
-  description: string
-}
 
 type GameCard = {
   id: number
@@ -151,7 +33,6 @@ type GameCard = {
   cost: number
   emoji?: string
   image?: string
-  attacks: Attack[]
 }
 
 type GameState = {
@@ -160,13 +41,6 @@ type GameState = {
   ownedCards: number[]
   matchesWon: number
   selectedCards: number[]
-  activeCardIndex: number
-  battlePhase: "select" | "choose-active" | "battle" | "victory" | "defeat"
-  playerCards: GameCard[]
-  enemyCards: GameCard[]
-  currentEnemyCard: number
-  turn: "player" | "enemy"
-  battleLog: string[]
   battleState: any
 }
 
@@ -177,13 +51,6 @@ export default function PokemonCardGame() {
     ownedCards: STARTER_CARDS,
     matchesWon: 0,
     selectedCards: [],
-    activeCardIndex: 0,
-    battlePhase: "select",
-    playerCards: [],
-    enemyCards: [],
-    currentEnemyCard: 0,
-    turn: "player",
-    battleLog: [],
     battleState: null,
   })
 
@@ -206,7 +73,6 @@ export default function PokemonCardGame() {
       ...template,
       maxHp: template.hp,
       hp: currentHp ?? template.hp,
-      attacks: template.attacks,
     }
   }
 
@@ -406,6 +272,13 @@ export default function PokemonCardGame() {
   )
 
   const BattleScreen = () => {
+    const [battlePhase, setBattlePhase] = useState<"select" | "battle" | "victory" | "defeat">("select")
+    const [playerCards, setPlayerCards] = useState<GameCard[]>([])
+    const [enemyCards, setEnemyCards] = useState<GameCard[]>([])
+    const [currentPlayerCard, setCurrentPlayerCard] = useState(0)
+    const [currentEnemyCard, setCurrentEnemyCard] = useState(0)
+    const [turn, setTurn] = useState<"player" | "enemy">("player")
+    const [battleLog, setBattleLog] = useState<string[]>([])
     const [isBossMatch, setIsBossMatch] = useState(false)
 
     useEffect(() => {
@@ -431,18 +304,21 @@ export default function PokemonCardGame() {
     const startBattle = () => {
       const playerDeck = gameState.selectedCards.map((id) => createCard(id))
 
-      // Create enemy deck (same logic as before)
+      // Skapa motståndare (starkare för boss)
       let enemyDeck: GameCard[]
       if (isBossMatch) {
-        const bossCardIds = [7, 8, 9]
+        // Boss har starkare kort
+        const bossCardIds = [7, 8, 9] // Shadowlord, Lightbringer, Voidmaster
         enemyDeck = bossCardIds.map((id) => {
           const card = createCard(id)
+          // Boost boss stats
           card.hp = Math.floor(card.hp * 1.3)
           card.maxHp = card.hp
           card.atk = Math.floor(card.atk * 1.2)
           return card
         })
       } else {
+        // Vanlig motståndare
         const availableCards = CARD_TYPES.filter((c) => c.rarity === "common" || c.rarity === "uncommon")
         enemyDeck = Array.from({ length: 3 }, () => {
           const randomCard = availableCards[Math.floor(Math.random() * availableCards.length)]
@@ -450,138 +326,77 @@ export default function PokemonCardGame() {
         })
       }
 
-      setGameState((prev) => ({
-        ...prev,
-        playerCards: playerDeck,
-        enemyCards: enemyDeck,
-        battlePhase: "choose-active",
-        currentEnemyCard: 0,
-        turn: "player",
-        battleLog: [`Striden börjar! ${isBossMatch ? "⭐ BOSS MATCH! ⭐" : ""}`],
-      }))
+      setPlayerCards(playerDeck)
+      setEnemyCards(enemyDeck)
+      setBattlePhase("battle")
+      setBattleLog([`Striden börjar! ${isBossMatch ? "⭐ BOSS MATCH! ⭐" : ""}`])
     }
 
-    const chooseActiveCard = (index: number) => {
-      setGameState((prev) => ({
-        ...prev,
-        activeCardIndex: index,
-        battlePhase: "battle",
-        battleLog: [...prev.battleLog, `${prev.playerCards[index].name} träder fram som aktiv kämpe!`],
-      }))
-    }
+    const attack = () => {
+      if (turn !== "player") return
 
-    const switchActiveCard = (index: number) => {
-      if (gameState.playerCards[index].hp > 0) {
-        setGameState((prev) => ({
-          ...prev,
-          activeCardIndex: index,
-        }))
-      }
-    }
+      const playerCard = playerCards[currentPlayerCard]
+      const enemyCard = enemyCards[currentEnemyCard]
 
-    const performAttack = (attack: Attack) => {
-      if (gameState.turn !== "player") return
+      if (!playerCard || !enemyCard) return
 
-      const activeCard = gameState.playerCards[gameState.activeCardIndex]
-      if (!activeCard || activeCard.hp <= 0) return
-
-      const enemyCard = gameState.enemyCards[gameState.currentEnemyCard]
-      if (!enemyCard) return
-
-      // Player's attack
-      const newEnemyCards = [...gameState.enemyCards]
-      newEnemyCards[gameState.currentEnemyCard] = {
+      // Spelarens attack
+      const newEnemyCards = [...enemyCards]
+      newEnemyCards[currentEnemyCard] = {
         ...enemyCard,
-        hp: Math.max(0, enemyCard.hp - attack.damage),
+        hp: Math.max(0, enemyCard.hp - playerCard.atk),
       }
+      setEnemyCards(newEnemyCards)
+      setBattleLog((prev) => [...prev, `${playerCard.name} attackerar ${enemyCard.name} för ${playerCard.atk} skada!`])
 
-      const newBattleLog = [
-        ...gameState.battleLog,
-        `${activeCard.name} använder ${attack.name} för ${attack.damage} skada!`,
-      ]
+      // Kontrollera om fiendens kort är besegrat
+      if (newEnemyCards[currentEnemyCard].hp <= 0) {
+        setBattleLog((prev) => [...prev, `${enemyCard.name} är besegrat!`])
 
-      // Check if enemy card is defeated
-      if (newEnemyCards[gameState.currentEnemyCard].hp <= 0) {
-        newBattleLog.push(`${enemyCard.name} är besegrat!`)
-
-        const nextEnemyCard = newEnemyCards.findIndex(
-          (card, index) => index > gameState.currentEnemyCard && card.hp > 0,
-        )
+        // Hitta nästa levande fiendekort
+        const nextEnemyCard = newEnemyCards.findIndex((card, index) => index > currentEnemyCard && card.hp > 0)
         if (nextEnemyCard !== -1) {
-          setGameState((prev) => ({
-            ...prev,
-            enemyCards: newEnemyCards,
-            currentEnemyCard: nextEnemyCard,
-            turn: "enemy",
-            battleLog: newBattleLog,
-          }))
+          setCurrentEnemyCard(nextEnemyCard)
         } else {
-          setGameState((prev) => ({
-            ...prev,
-            enemyCards: newEnemyCards,
-            battlePhase: "victory",
-            battleLog: newBattleLog,
-          }))
+          // Alla fiendens kort är besegrade
+          setBattlePhase("victory")
           return
         }
-      } else {
-        setGameState((prev) => ({
-          ...prev,
-          enemyCards: newEnemyCards,
-          turn: "enemy",
-          battleLog: newBattleLog,
-        }))
       }
 
-      // Enemy turn
+      setTurn("enemy")
+
+      // Fiendens tur (automatisk efter kort delay)
       setTimeout(() => {
-        const currentEnemy = newEnemyCards[gameState.currentEnemyCard]
+        const currentEnemy = newEnemyCards[currentEnemyCard]
         if (currentEnemy && currentEnemy.hp > 0) {
-          const randomAttack = currentEnemy.attacks[Math.floor(Math.random() * currentEnemy.attacks.length)]
-
-          const newPlayerCards = [...gameState.playerCards]
-          newPlayerCards[gameState.activeCardIndex] = {
-            ...activeCard,
-            hp: Math.max(0, activeCard.hp - randomAttack.damage),
+          const newPlayerCards = [...playerCards]
+          newPlayerCards[currentPlayerCard] = {
+            ...playerCard,
+            hp: Math.max(0, playerCard.hp - currentEnemy.atk),
           }
+          setPlayerCards(newPlayerCards)
+          setBattleLog((prev) => [
+            ...prev,
+            `${currentEnemy.name} attackerar ${playerCard.name} för ${currentEnemy.atk} skada!`,
+          ])
 
-          const enemyBattleLog = [
-            ...newBattleLog,
-            `${currentEnemy.name} använder ${randomAttack.name} för ${randomAttack.damage} skada!`,
-          ]
+          // Kontrollera om spelarens kort är besegrat
+          if (newPlayerCards[currentPlayerCard].hp <= 0) {
+            setBattleLog((prev) => [...prev, `${playerCard.name} är besegrat!`])
 
-          // Check if player's active card is defeated
-          if (newPlayerCards[gameState.activeCardIndex].hp <= 0) {
-            enemyBattleLog.push(`${activeCard.name} är besegrat!`)
-
-            // Find next alive card
-            const nextAliveCard = newPlayerCards.findIndex((card) => card.hp > 0)
-            if (nextAliveCard !== -1) {
-              setGameState((prev) => ({
-                ...prev,
-                playerCards: newPlayerCards,
-                activeCardIndex: nextAliveCard,
-                turn: "player",
-                battleLog: enemyBattleLog,
-              }))
+            // Hitta nästa levande spelarkort
+            const nextPlayerCard = newPlayerCards.findIndex((card, index) => index > currentPlayerCard && card.hp > 0)
+            if (nextPlayerCard !== -1) {
+              setCurrentPlayerCard(nextPlayerCard)
             } else {
-              setGameState((prev) => ({
-                ...prev,
-                playerCards: newPlayerCards,
-                battlePhase: "defeat",
-                battleLog: enemyBattleLog,
-              }))
+              // Alla spelarens kort är besegrade
+              setBattlePhase("defeat")
               return
             }
-          } else {
-            setGameState((prev) => ({
-              ...prev,
-              playerCards: newPlayerCards,
-              turn: "player",
-              battleLog: enemyBattleLog,
-            }))
           }
         }
+        setTurn("player")
       }, 1500)
     }
 
@@ -594,24 +409,17 @@ export default function PokemonCardGame() {
         coins: prev.coins + baseReward + bonusReward,
         matchesWon: prev.matchesWon + 1,
         selectedCards: [],
-        activeCardIndex: 0,
-        battlePhase: "select",
-        playerCards: [],
-        enemyCards: [],
-        currentEnemyCard: 0,
-        turn: "player",
-        battleLog: [],
         screen: isBossMatch ? "rewards" : "menu",
       }))
     }
 
-    if (gameState.battlePhase === "select") {
+    if (battlePhase === "select") {
       return (
         <div className="min-h-screen bg-gradient-to-b from-red-600 to-orange-700 p-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-3xl font-bold text-white">Välj din karaktär</h2>
+                <h2 className="text-3xl font-bold text-white">Välj 3 kort för strid</h2>
                 {isBossMatch && (
                   <Badge className="bg-yellow-500 mt-2">
                     <Star className="w-4 h-4 mr-1" />
@@ -624,30 +432,27 @@ export default function PokemonCardGame() {
               </Button>
             </div>
 
-            {gameState.selectedCards.length > 0 && (
-              <div className="mb-6 text-center">
-                <p className="text-white mb-2">Valda karaktärer:</p>
-                <div className="flex justify-center gap-4">
-                  {gameState.selectedCards.map((cardId) => {
-                    const card = createCard(cardId)
-                    return (
-                      <div key={cardId} className="text-white font-bold">
-                        {card.image ? (
-                          <img
-                            src={card.image || "/placeholder.svg"}
-                            alt={card.name}
-                            className="w-16 h-16 object-cover rounded-lg mx-auto mb-2"
-                          />
-                        ) : (
-                          <div className="text-4xl mb-2">{card.emoji}</div>
-                        )}
-                        {card.name}
-                      </div>
-                    )
-                  })}
-                </div>
+            <div className="mb-6">
+              <p className="text-white mb-2">Valda kort: {gameState.selectedCards.length}/3</p>
+              <div className="flex gap-2">
+                {gameState.selectedCards.map((cardId, index) => {
+                  const card = createCard(cardId)
+                  return (
+                    <div key={index} className="w-8 h-8 flex items-center justify-center">
+                      {card.image ? (
+                        <img
+                          src={card.image || "/placeholder.svg"}
+                          alt={card.name}
+                          className="w-full h-full object-cover rounded"
+                        />
+                      ) : (
+                        <div className="text-2xl">{card.emoji}</div>
+                      )}
+                    </div>
+                  )
+                })}
               </div>
-            )}
+            </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
               {Array.from(new Set(gameState.ownedCards)).map((cardId) => {
@@ -656,7 +461,7 @@ export default function PokemonCardGame() {
                 return (
                   <Card
                     key={cardId}
-                    className={`cursor-pointer transition-all hover:scale-105 ${isSelected ? "ring-4 ring-yellow-400 bg-yellow-50" : ""}`}
+                    className={`cursor-pointer transition-all hover:scale-105 ${isSelected ? "ring-2 ring-yellow-400" : ""}`}
                     onClick={() => selectCard(cardId)}
                   >
                     <CardContent className="p-4 text-center">
@@ -672,17 +477,16 @@ export default function PokemonCardGame() {
                         )}
                       </div>
                       <h3 className="font-bold text-sm mb-2">{card.name}</h3>
-                      <div className="flex justify-between text-xs mb-2">
+                      <div className="flex justify-between text-xs">
                         <span className="flex items-center gap-1">
                           <Heart className="w-3 h-3 text-red-500" />
                           {card.hp}
                         </span>
                         <span className="flex items-center gap-1">
-                          <Zap className="w-3 h-3 text-blue-500" />
-                          {card.attacks.length}
+                          <Sword className="w-3 h-3 text-orange-500" />
+                          {card.atk}
                         </span>
                       </div>
-                      <Badge className={`${getRarityColor(card.rarity)} text-white text-xs`}>{card.rarity}</Badge>
                     </CardContent>
                   </Card>
                 )
@@ -702,62 +506,7 @@ export default function PokemonCardGame() {
       )
     }
 
-    if (gameState.battlePhase === "choose-active") {
-      return (
-        <div className="min-h-screen bg-gradient-to-b from-indigo-600 to-purple-700 p-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-white mb-4">Välj ditt aktiva kort</h2>
-              <p className="text-indigo-100">Klicka på kortet du vill börja strida med</p>
-            </div>
-
-            <div className="flex gap-6 justify-center">
-              {gameState.playerCards.map((card, index) => (
-                <Card
-                  key={index}
-                  className="cursor-pointer transition-all hover:scale-105 hover:shadow-xl"
-                  onClick={() => chooseActiveCard(index)}
-                >
-                  <CardContent className="p-4 text-center w-48">
-                    <div className="w-24 h-24 mb-3 mx-auto flex items-center justify-center">
-                      {card.image ? (
-                        <img
-                          src={card.image || "/placeholder.svg"}
-                          alt={card.name}
-                          className="w-full h-full object-cover rounded-lg"
-                        />
-                      ) : (
-                        <div className="text-5xl">{card.emoji}</div>
-                      )}
-                    </div>
-                    <h3 className="font-bold text-lg mb-2">{card.name}</h3>
-                    <div className="flex justify-between text-sm mb-3">
-                      <span className="flex items-center gap-1">
-                        <Heart className="w-4 h-4 text-red-500" />
-                        {card.hp}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Zap className="w-4 h-4 text-blue-500" />
-                        {card.attacks.length}
-                      </span>
-                    </div>
-                    <div className="space-y-1">
-                      {card.attacks.map((attack, attackIndex) => (
-                        <div key={attackIndex} className="text-xs bg-gray-100 rounded p-1">
-                          {attack.name} ({attack.damage})
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      )
-    }
-
-    if (gameState.battlePhase === "victory") {
+    if (battlePhase === "victory") {
       return (
         <div className="min-h-screen bg-gradient-to-b from-green-600 to-blue-700 flex items-center justify-center p-4">
           <Card className="w-full max-w-md text-center">
@@ -780,30 +529,15 @@ export default function PokemonCardGame() {
       )
     }
 
-    if (gameState.battlePhase === "defeat") {
+    if (battlePhase === "defeat") {
       return (
         <div className="min-h-screen bg-gradient-to-b from-gray-600 to-red-700 flex items-center justify-center p-4">
           <Card className="w-full max-w-md text-center">
             <CardContent className="p-8">
               <div className="text-6xl mb-4">💀</div>
               <h2 className="text-3xl font-bold mb-4 text-red-600">Förlust!</h2>
-              <p className="text-lg mb-4">Din karaktär är besegrad.</p>
-              <Button
-                onClick={() => {
-                  setGameState((prev) => ({
-                    ...prev,
-                    screen: "menu",
-                    selectedCards: [],
-                    activeCardIndex: 0,
-                    battlePhase: "select",
-                    playerCards: [],
-                    enemyCards: [],
-                    currentEnemyCard: 0,
-                    turn: "player",
-                    battleLog: [],
-                  }))
-                }}
-              >
+              <p className="text-lg mb-4">Alla dina kort är besegrade.</p>
+              <Button onClick={() => setGameState((prev) => ({ ...prev, screen: "menu", selectedCards: [] }))}>
                 Tillbaka till menyn
               </Button>
             </CardContent>
@@ -816,14 +550,14 @@ export default function PokemonCardGame() {
     return (
       <div className="min-h-screen bg-gradient-to-b from-purple-900 to-red-900 p-4">
         <div className="max-w-6xl mx-auto">
-          {/* Enemy cards */}
+          {/* Fiendens kort */}
           <div className="mb-8">
             <h3 className="text-white text-xl mb-4">Motståndare {isBossMatch ? "(BOSS)" : ""}</h3>
             <div className="flex gap-4 justify-center">
-              {gameState.enemyCards.map((card, index) => (
+              {enemyCards.map((card, index) => (
                 <Card
                   key={index}
-                  className={`${index === gameState.currentEnemyCard ? "ring-2 ring-red-400" : ""} ${card.hp <= 0 ? "opacity-50" : ""}`}
+                  className={`${index === currentEnemyCard ? "ring-2 ring-red-400" : ""} ${card.hp <= 0 ? "opacity-50" : ""}`}
                 >
                   <CardContent className="p-4 text-center w-32">
                     <div className="w-12 h-12 mb-2 mx-auto flex items-center justify-center">
@@ -844,6 +578,10 @@ export default function PokemonCardGame() {
                         <Heart className="w-3 h-3 text-red-500" />
                         {card.hp}/{card.maxHp}
                       </div>
+                      <div className="flex items-center justify-center gap-1">
+                        <Sword className="w-3 h-3 text-orange-500" />
+                        {card.atk}
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -851,11 +589,11 @@ export default function PokemonCardGame() {
             </div>
           </div>
 
-          {/* Battle log */}
+          {/* Stridslog */}
           <div className="mb-8">
             <Card className="max-h-32 overflow-y-auto">
               <CardContent className="p-4">
-                {gameState.battleLog.map((log, index) => (
+                {battleLog.map((log, index) => (
                   <p key={index} className="text-sm mb-1">
                     {log}
                   </p>
@@ -864,18 +602,16 @@ export default function PokemonCardGame() {
             </Card>
           </div>
 
-          <div className="flex gap-8 justify-center">
-            {/* Player's 3 cards */}
-            <div className="flex gap-4">
-              {gameState.playerCards.map((card, index) => (
+          {/* Spelarens kort */}
+          <div>
+            <h3 className="text-white text-xl mb-4">Dina kort</h3>
+            <div className="flex gap-4 justify-center mb-6">
+              {playerCards.map((card, index) => (
                 <Card
                   key={index}
-                  className={`cursor-pointer transition-all hover:scale-105 ${
-                    index === gameState.activeCardIndex ? "ring-4 ring-blue-400" : "ring-2 ring-gray-400"
-                  } ${card.hp <= 0 ? "opacity-50" : ""}`}
-                  onClick={() => switchActiveCard(index)}
+                  className={`${index === currentPlayerCard ? "ring-2 ring-blue-400" : ""} ${card.hp <= 0 ? "opacity-50" : ""}`}
                 >
-                  <CardContent className="p-3 text-center w-24">
+                  <CardContent className="p-4 text-center w-32">
                     <div className="w-12 h-12 mb-2 mx-auto flex items-center justify-center">
                       {card.image ? (
                         <img
@@ -884,96 +620,31 @@ export default function PokemonCardGame() {
                           className="w-full h-full object-cover rounded-lg"
                         />
                       ) : (
-                        <div className="text-2xl">{card.emoji}</div>
+                        <div className="text-3xl">{card.emoji}</div>
                       )}
                     </div>
-                    <h4 className="font-bold text-xs mb-1">{card.name}</h4>
+                    <h4 className="font-bold text-sm mb-2">{card.name}</h4>
+                    <Progress value={(card.hp / card.maxHp) * 100} className="mb-2" />
                     <div className="text-xs">
-                      <Heart className="w-3 h-3 text-red-500 inline mr-1" />
-                      {card.hp}/{card.maxHp}
+                      <div className="flex items-center justify-center gap-1 mb-1">
+                        <Heart className="w-3 h-3 text-red-500" />
+                        {card.hp}/{card.maxHp}
+                      </div>
+                      <div className="flex items-center justify-center gap-1">
+                        <Sword className="w-3 h-3 text-orange-500" />
+                        {card.atk}
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
 
-            {/* Active card large display */}
-            {gameState.playerCards[gameState.activeCardIndex] && (
-              <div className="relative w-80 h-96 rounded-xl overflow-hidden shadow-2xl">
-                {/* Background image */}
-                <div className="absolute inset-0">
-                  {gameState.playerCards[gameState.activeCardIndex].image ? (
-                    <img
-                      src={gameState.playerCards[gameState.activeCardIndex].image || "/placeholder.svg"}
-                      alt={gameState.playerCards[gameState.activeCardIndex].name}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-b from-blue-500 to-purple-600 flex items-center justify-center text-8xl">
-                      {gameState.playerCards[gameState.activeCardIndex].emoji}
-                    </div>
-                  )}
-                </div>
-
-                {/* Semi-transparent overlay */}
-                <div className="absolute inset-0 bg-black bg-opacity-40" />
-
-                {/* Health in top right corner */}
-                <div className="absolute top-4 right-4 bg-black bg-opacity-70 rounded-lg p-2">
-                  <Progress
-                    value={
-                      (gameState.playerCards[gameState.activeCardIndex].hp /
-                        gameState.playerCards[gameState.activeCardIndex].maxHp) *
-                      100
-                    }
-                    className="mb-1 w-20"
-                  />
-                  <div className="flex items-center justify-center gap-1 text-white text-sm">
-                    <Heart className="w-4 h-4 text-red-400" />
-                    <span className="font-bold">
-                      {gameState.playerCards[gameState.activeCardIndex].hp}/
-                      {gameState.playerCards[gameState.activeCardIndex].maxHp}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card content */}
-                <div className="relative z-10 p-6 h-full flex flex-col justify-between text-white">
-                  {/* Top - Name */}
-                  <div>
-                    <h2 className="text-2xl font-bold text-center">
-                      {gameState.playerCards[gameState.activeCardIndex].name}
-                    </h2>
-                  </div>
-
-                  {/* Bottom - Attacks */}
-                  <div className="space-y-2">
-                    <h3 className="text-lg font-bold text-center mb-3">Attacker</h3>
-                    {gameState.playerCards[gameState.activeCardIndex].attacks.map((attack, index) => (
-                      <button
-                        key={index}
-                        onClick={() => performAttack(attack)}
-                        disabled={gameState.turn !== "player"}
-                        className="w-full bg-black bg-opacity-60 hover:bg-opacity-80 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg p-3 transition-all hover:scale-105 border border-white border-opacity-30"
-                      >
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="font-bold">{attack.name}</span>
-                          <span className="flex items-center gap-1">
-                            <Sword className="w-4 h-4 text-orange-400" />
-                            {attack.damage}
-                          </span>
-                        </div>
-                        <p className="text-sm text-gray-300">{attack.description}</p>
-                      </button>
-                    ))}
-
-                    {gameState.turn === "enemy" && (
-                      <div className="text-center text-yellow-300 font-bold">Motståndarens tur...</div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            )}
+            <div className="text-center">
+              <Button size="lg" disabled={turn !== "player"} onClick={attack}>
+                {turn === "player" ? "Attackera!" : "Motståndarens tur..."}
+              </Button>
+            </div>
           </div>
         </div>
       </div>
